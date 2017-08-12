@@ -2,7 +2,7 @@
 import {test} from "tap"
 import {spy} from "sinon"
 
-import flip from "./source"
+import forEach from "./source"
 
 const unction = spy(([value, key]) => [value, key])
 
