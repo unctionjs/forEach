@@ -1,21 +1,21 @@
 export default function forEach (unction: any => KeyType => any): Function {
-  return function forEachUnction (iterable: IterableType): IterableType {
-    if (typeof iterable.forEach === "function") {
-      iterable.forEach((value: any, key: KeyType) => {
+  return function forEachUnction (functor: FunctorType): FunctorType {
+    if (typeof functor.forEach === "function") {
+      functor.forEach((value: any, key: KeyType) => {
         unction(value)(key)
       })
 
-      return iterable
+      return functor
     }
 
-    if (iterable.toString() === "[object Object]") {
-      Object.entries(iterable).forEach(([key, value]: [KeyType, any]) => {
+    if (functor.toString() === "[object Object]") {
+      Object.entries(functor).forEach(([key, value]: [KeyType, any]) => {
         unction(value)(key)
       })
 
-      return iterable
+      return functor
     }
 
-    throw new Error("Tried to figure out the iterative function for iterable but couldn't")
+    throw new Error("Tried to figure out the iterative function for functor but couldn't")
   }
 }
