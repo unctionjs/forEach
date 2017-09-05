@@ -59,5 +59,6 @@
   },
   "files": [
     "transpiled/index.js"
-  ]
+  ],
+  "dependencies": null
 }
