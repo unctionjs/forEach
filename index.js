@@ -1,21 +1,22 @@
-export default function forEach (unction: any => KeyType => any): Function {
+import fromFunctorToPairs from "@unction/fromfunctortopairs"
+
+
+import type {UnaryFunctionType} from "types"
+import type {KeyType} from "types"
+import type {ValueType} from "types"
+
+export default function forEach (unction: ValueType => KeyType => mixed): UnaryFunctionType {
   return function forEachUnction (functor: FunctorType): FunctorType {
     if (typeof functor.forEach === "function") {
-      functor.forEach((value: any, key: KeyType) => {
+      functor.forEach((value: ValueType, key: KeyType) => {
         unction(value)(key)
       })
 
       return functor
     }
 
-    if (functor.toString() === "[object Object]") {
-      Object.entries(functor).forEach(([key, value]: [KeyType, any]) => {
-        unction(value)(key)
-      })
-
-      return functor
-    }
-
-    throw new Error("Tried to figure out the iterative function for functor but couldn't")
+    return fromFunctorToPairs(functor).forEach(([key, value]: [KeyType | void, ValueType]) => {
+      unction(value)(key)
+    })
   }
 }

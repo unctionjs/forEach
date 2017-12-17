@@ -1,4 +1,4 @@
-/* eslint-disable flowtype/require-parameter-type, flowtype/require-return-type */
+/* eslint-disable no-magic-numbers, no-undefined, flowtype/require-parameter-type, flowtype/require-return-type, flowtype/require-variable-type */
 import {test} from "tap"
 import {spy} from "sinon"
 
@@ -8,7 +8,7 @@ const unction = spy(([value, key]) => [value, key])
 
 const sample = (value) => (key) => unction([value, key])
 
-test(({ok, end}) => {
+test("Array", ({ok, end}) => {
   forEach(sample)(["a", "b", "c"])
 
   ok(unction.calledWith(["a", 0]))
@@ -18,11 +18,11 @@ test(({ok, end}) => {
   end()
 })
 
-test(({ok, end}) => {
+test("Object", ({ok, end}) => {
   forEach(sample)({
     aaa: "1",
     bbb: "2",
-    ccc: "3"
+    ccc: "3",
   })
 
   ok(unction.calledWith(["1", "aaa"]))
@@ -32,14 +32,26 @@ test(({ok, end}) => {
   end()
 })
 
-test(({ok, end}) => {
+test("Map", ({ok, end}) => {
   forEach(sample)(new Map([
     ["a", "b"],
-    ["c", "d"]
+    ["c", "d"],
   ]))
 
   ok(unction.calledWith(["b", "a"]))
   ok(unction.calledWith(["d", "c"]))
+
+  end()
+})
+
+test("Set", ({ok, end}) => {
+  forEach(sample)(new Set([
+    "a",
+    "b",
+  ]))
+
+  ok(unction.calledWith(["a", "a"]))
+  ok(unction.calledWith(["b", "b"]))
 
   end()
 })
