@@ -1,6 +1,6 @@
 {
   "name": "@unction/foreach",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Figure out the raw iterator function of a thing",
   "keywords": [
     "unction",
