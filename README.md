@@ -5,7 +5,7 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (any -> KeyType -> any) -> FunctorType -> FunctorType
+> (any => KeyType => any) => FunctorType => FunctorType
 
 Takes any kind of iterable object and figures out the best way to iterate over it.
 
