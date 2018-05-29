@@ -1,4 +1,4 @@
-/* eslint-disable no-magic-numbers, no-undefined, flowtype/require-parameter-type, flowtype/require-return-type, flowtype/require-variable-type */
+/* eslint-disable no-magic-numbers, no-undefined, flowtype/require-variable-type */
 import {test} from "tap"
 import {spy} from "sinon"
 
