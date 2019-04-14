@@ -1,10 +1,11 @@
 import fromFunctorToPairs from "@unction/fromfunctortopairs";
-export default function forEach(unction) {
-  return function forEachUnction(functor) {
+export default function forEach (unction) {
+  return function forEachUnction (functor) {
     if (typeof functor.forEach === "function") {
       functor.forEach((value, key) => {
         unction(value)(key);
       });
+
       return functor;
     }
 
