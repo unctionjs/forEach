@@ -66,7 +66,7 @@
     "browser.js.map"
   ],
   "dependencies": {
-    "@unction/fromfunctortopairs": "4.0.0"
+    "@unction/fromfunctortopairs": "5.1.0"
   },
   "module": "index.js",
   "browser": "browser.js"
