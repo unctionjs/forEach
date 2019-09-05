@@ -1,16 +1,19 @@
 import fromFunctorToPairs from "@unction/fromfunctortopairs";
-export default function forEach (unction) {
-  return function forEachUnction (functor) {
-    if (typeof functor.forEach === "function") {
-      functor.forEach((value, key) => {
-        unction(value)(key);
+import {MapperFunctionType} from "./types";
+import {EnumerableType} from "./types";
+
+export default function forEach<A, B> (unction: MapperFunctionType<A, B>) {
+  return function forEachUnction (enumerable: EnumerableType<A>) {
+    if (typeof enumerable.forEach === "function") {
+      enumerable.forEach((value: A) => {
+        unction(value);
       });
 
-      return functor;
+      return enumerable;
     }
 
-    return fromFunctorToPairs(functor).forEach(([key, value]) => {
-      unction(value)(key);
+    return fromFunctorToPairs(enumerable).forEach(([, value]: [unknown, A]) => {
+      unction(value);
     });
   };
 }

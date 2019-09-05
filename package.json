@@ -61,7 +61,7 @@
     "instrument": false
   },
   "files": [
-    "index.js",
+    "index.ts",
     "main.js",
     "main.js.map",
     "browser.js",
@@ -71,5 +71,6 @@
     "@unction/fromfunctortopairs": "5.6.0"
   },
   "module": "module.js",
-  "browser": "browser.js"
+  "browser": "browser.js",
+  "types": "types.d.ts"
 }

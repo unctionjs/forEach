@@ -4,9 +4,9 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> MapperFunctionType => FunctorType => FunctorType
+>  MapperFunctionType<A, B> => EnumerableType<A> => EnumerableType<A>
 
-Takes any kind of iterable object and figures out the best way to iterate over it.
+Takes any kind of enumerable and figures out the best way to iterate over it.
 
 ``` javascript
 forEach((x) => y)([])
