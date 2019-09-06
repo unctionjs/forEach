@@ -1,7 +1,7 @@
 /* eslint-disable no-magic-numbers, no-undefined, flowtype/require-variable-type */
 import { spy } from "sinon";
 
-import forEach from "./index.ts";
+import forEach from "./index";
 
 const unction = spy(([value, key]) => [value, key]);
 
