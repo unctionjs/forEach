@@ -4,7 +4,7 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
->  MapperFunctionType<A, B> => EnumerableType<A> => EnumerableType<A>
+>  MapperFunctionType<A, B> => Array<A> | Set<A> | RecordType<unknown, A> | string => Array<A> | Set<A> | RecordType<unknown, A> | string
 
 Takes any kind of enumerable and figures out the best way to iterate over it.
 
